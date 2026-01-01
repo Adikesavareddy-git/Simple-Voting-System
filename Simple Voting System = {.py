@@ -23,5 +23,10 @@ print("\nVoting Results:")
 for name, count in candidates.items():
     print(f"{name}: {count} votes")
 
-winner = max(candidates, key=candidates.get)
-print(f"\nWinner: {winner}")
+max_votes = max(candidates.values())
+winners = [name for name, count in candidates.items() if count == max_votes]
+
+if len(winners) == 1:
+    print(f"\nWinner: {winners[0]}")
+else:
+    print("\nResult: Tie between", ", ".join(winners))
